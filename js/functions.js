@@ -42,15 +42,24 @@ const loadPetsDetails = async (details) => {
     const res = await fetch(uri);
     const data = await res.json();
     displayPetsDetails(data.petData)
+    displayLikedPet(data.petData);
+}
+
+//Load single image details by calling API
+const loadPetsImage = async (petImg) => {
+    const uri = `https://openapi.programming-hero.com/api/peddy/pet/${petImg}`
+    const res = await fetch(uri);
+    const data = await res.json();
+    displayLikedPet(data.petData);
 }
 
 // Display pets details this function
 const displayPetsDetails = (singleDetail) =>{
     const petDetailsContainer = document.getElementById('modal-content');
 
-    const detailsCard = document.createElement('div')
-    detailsCard.classList = "card card-compact p-3 border rounded-lg"
-    detailsCard.innerHTML = `
+    
+    petDetailsContainer.classList = "card card-compact p-3 border rounded-lg"
+    petDetailsContainer.innerHTML = `
         <figure class="h-[200px]">
                 <img
                 src=${singleDetail.image}
@@ -91,8 +100,19 @@ const displayPetsDetails = (singleDetail) =>{
                 </div>
             </div>
     `
-    petDetailsContainer.append(detailsCard);
+    
     document.getElementById('custom_modal').showModal();
+}
+
+//
+const displayLikedPet = (petImage) => {
+    const petImageContainer = document.getElementById('image-container');
+    
+    const imageWrap = document.createElement('div');
+    imageWrap.innerHTML = `
+        <img class="rounded-lg" src=${petImage.image} />
+    `
+    petImageContainer.append(imageWrap);
 }
 // loaded all pictures and data by calling API here
 const loadPetAllData = () => {
@@ -106,6 +126,25 @@ const loadPetAllData = () => {
 const displayPetsData = pets => {
     const imageContainer = document.getElementById('images-and-details');
     imageContainer.innerHTML = "";
+
+    // Display empty data message
+
+    if(pets.length == 0){
+        imageContainer.classList.remove("grid");
+        imageContainer.innerHTML = `
+            <div class="bg-gray-200 p-7 rounded-lg min-h-[300px] flex flex-col justify-center items-center space-y-5 text-center">
+                <img src="./images/error.webp" />
+                <h2 class="text-2xl font-bold">No Information Available</h2>
+                <p>It is a long established fact that a reader will be distracted by the readable 
+                content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a</p>
+            </div>
+        `
+        return;
+    }
+    else{
+        imageContainer.classList.add("grid");
+    }
+
     
 
     // loading and showing every single image by forEach
@@ -141,7 +180,7 @@ const displayPetsData = pets => {
                 </div>
                 <div class="card-actions border-t pt-5">
                    <div class="flex gap-2">
-                         <button class="btn btn-outline px-2 py-0"><i class="px-2 text-xl fa-regular fa-thumbs-up"></i></button>
+                         <button onclick="loadPetsImage(${singleImage.petId})" class="btn btn-outline px-2 py-0"><i class="px-2 text-xl fa-regular fa-thumbs-up"></i></button>
                          <button class="btn btn-outline px-2 py-0 text-[#0E7A81]">Adopt</button>
                          <button onclick="loadPetsDetails(${singleImage.petId})" class="btn btn-outline px-2 py-0 text-[#0E7A81]">Details</button>
                    </div>
@@ -153,7 +192,7 @@ const displayPetsData = pets => {
 }
 
 
-//This a function to display menu on website
+//This is a function to display menu on website
 const displayMenu = menu => {
     const menuContainer = document.getElementById('menu-data');
    
