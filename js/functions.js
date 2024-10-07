@@ -43,6 +43,19 @@ const loadSingleCategoryImage = (id) => {
     .catch(error => console.log(error))
 }
 
+// Data Sorting in Descending order
+const sortData = () => {
+    fetch('https://openapi.programming-hero.com/api/peddy/pets')
+    .then(res => res.json())
+    .then(data => {
+      let single = data.pets
+      single.sort((a, b) => (a.price > b.price ? -1 : 1));
+      displayPetsData(data.pets);
+    })
+    .catch(error => console.log(error))
+}
+
+
 //Load single image details by calling API
 const loadPetsDetails = async (details) => {
     const uri = `https://openapi.programming-hero.com/api/peddy/pet/${details}`
