@@ -80,44 +80,88 @@
             </div>
         </div>
     </section>
-    <!--Pets image details card endes from here -->
+    
+    
+</main>
+<footer class="bg-black">
+    <section class="w-11/12 mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-10">
+            <div class="flex flex-col gap-4">
+                <div class="flex gap-2 items-center">
+                    <img class="w-[20px] h-[20px]" src="./images/logo.webp" alt="">
+                    <h2 class="text-xl font-bold text-white">Peddy</h2>
+                </div>
+                <div>
+                    <p class="text-xs text-gray-300">Location: av. Washington 165, NY CA </p>
+                    <p class="text-xs text-gray-300">54003</p>
+                    <p class="text-xs text-gray-300">Phone: +31 85 964 47 25</p>
+                    <p class="text-xs text-gray-300">Email: info@yourdomain.com</p>
+                    <p class="text-xs text-gray-300">Openings hours: 9.00 AM - 5.00 PM</p>
+                </div>
+                <div >
+                    <ul class="flex gap-2" >
+                        <li class="w-[30px] h-[30px]"><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                        <li class="w-[30px] h-[30px]"><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
+                        <li class="w-[30px] h-[30px]"><a href=""><img src="https://img.icons8.com/?size=96&id=19318&format=png" alt=""></i></a></li>
+                        <li class="w-[30px] h-[30px]"><a href=""><img src="https://img.icons8.com/?size=96&id=32323&format=png" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col gap-3 items-start">
+                <h2 class="font-bold text-white">Useful Links</h2>
+                <ul>
+                    <li class="text-gray-300 text-xs"><a href="">Home</a></li>
+                    <li class="text-gray-300 text-xs"><a href="">About Us</a></li>
+                    <li class="text-gray-300 text-xs"><a href="">Animals</a></li>
+                    <li class="text-gray-300 text-xs"><a href="">Foundation</a></li>
+                    <li class="text-gray-300 text-xs"><a href="">Contact</a></li>
+                </ul>
+            </div>
+            <div class="flex flex-col gap-3 items-start">
+                <h2 class="font-bold text-white">Drop a Message</h2>
+                <input class="px-3 py-2 text-white bg-gray-500 rounded-lg" type="text" name="" id="" placeholder="Enter your email">
+                <button class="btn px-14 bg-[#0E7A81] text-white">Subscripte</button>
+            </div>
+        </div>
+    </section>
+</footer>
+<!--Pets image details card endes from here -->
     <!--Modal-->
     <!-- Open the modal using ID.showModal() method -->
-        <button class="btn hidden" onclick="custom_modal.showModal()">open modal</button>
-        <dialog id="custom_modal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-            <div id="modal-content">
-            </div>
-            <div class="modal-action">
-            <form method="dialog" class="flex items-center justify-center">
-                <!-- if there is a button in form, it will close the modal -->
-                <button class="btn bg-[#ccf6f9]">Cancel</button>
-            </form>
-            </div>
+    <button class="btn hidden" onclick="custom_modal.showModal()">open modal</button>
+    <dialog id="custom_modal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+        <div id="modal-content">
         </div>
-        </dialog>
+        <div class="modal-action">
+        <form method="dialog" class="flex items-center justify-center">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn bg-[#ccf6f9]">Cancel</button>
+        </form>
+        </div>
+    </div>
+    </dialog>
 
 
-        <!--Second Modal-->
-        <!-- Open the modal using ID.showModal() method -->
-        <button class="btn hidden" onclick="custom_modal_2.showModal()">open modal</button>
-        <dialog id="custom_modal_2" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-            <div id="count_down_container" class="flex flex-col space-y-3 items-center justify-center">
-                <img class="w-[60px] h-[60px]" src="https://img.icons8.com/?size=160&id=ww1tIlABtSe9&format=png" />
-                <h2 class="text-2xl font-bold">Congrates</h2>
-                <p>Adoption Process is Start For your Pet<p>
-                <h2 id="count" class="text-2xl font-bold"></h2>
-            </div>
-            <div class="modal-action">
-            <form method="dialog">
-                <!-- if there is a button in form, it will close the modal -->
-                <button id="closeBtn" class="btn">Close</button>
-            </form>
-            </div>
+    <!--Second Modal-->
+    <!-- Open the modal using ID.showModal() method -->
+    <button class="btn hidden" onclick="custom_modal_2.showModal()">open modal</button>
+    <dialog id="custom_modal_2" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+        <div id="count_down_container" class="flex flex-col space-y-3 items-center justify-center">
+            <img class="w-[60px] h-[60px]" src="https://img.icons8.com/?size=160&id=ww1tIlABtSe9&format=png" />
+            <h2 class="text-2xl font-bold">Congrates</h2>
+            <p>Adoption Process is Start For your Pet<p>
+            <h2 id="count" class="text-2xl font-bold"></h2>
         </div>
-        </dialog>
-</main>
+        <div class="modal-action">
+        <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button id="closeBtn" class="btn">Close</button>
+        </form>
+        </div>
+    </div>
+    </dialog>
     <script src="js/functions.js"></script>
 </body>
 </html>
