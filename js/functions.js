@@ -140,10 +140,12 @@ const adoptThePet2 = async (adopt) => {
     let num = 3;
     let clockId = setInterval(() => {
         if(num <= 1){
-            clearInterval(clockId);
 
-            //Automatically close the modal once the task is done
-            closeBtn.click();
+           setTimeout(()=>{
+                clearInterval(clockId);
+                //Automatically close the modal once the task is done
+                closeBtn.click();
+           },1001)
         }
         countElement.innerHTML = num;
         num--;
