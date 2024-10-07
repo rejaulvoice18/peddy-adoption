@@ -5,3 +5,7 @@
     border-radius: 20px;
     
 }
+.disable{
+    background-color: lightgray;
+    color: gray ;
+}

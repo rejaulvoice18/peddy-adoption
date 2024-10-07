@@ -29,9 +29,16 @@ const loadSingleCategoryImage = (id) => {
 
         // adding active class to the current menu
         const activeButton = document.getElementById(`btn-${id}`);
-        console.log("this is button id", activeButton)
         activeButton.classList.add('active');
-        displayPetsData(data.data)
+        // spinner mechanism blocking the div and loding the pets card after 2 seconds
+        document.getElementById('spiner').style.display = "block"
+        document.getElementById('image_card_container').style.display = "none"
+        document.getElementById("right_side_bar").style.display = "none"
+
+        setTimeout(() => {
+            displayPetsData(data.data)
+            document.getElementById("right_side_bar").style.display = "block"
+        },2000)
     })
     .catch(error => console.log(error))
 }
@@ -42,7 +49,6 @@ const loadPetsDetails = async (details) => {
     const res = await fetch(uri);
     const data = await res.json();
     displayPetsDetails(data.petData)
-    displayLikedPet(data.petData);
 }
 
 //Load single image details by calling API
@@ -104,7 +110,38 @@ const displayPetsDetails = (singleDetail) =>{
     document.getElementById('custom_modal').showModal();
 }
 
-//
+
+// Display adopted modal
+const adoptThePet2 = async (adopt) => {
+    fetch(`https://openapi.programming-hero.com/api/peddy/pet/${adopt}`)
+    .then(res => res.json())
+    .then(data => {
+        const displayBtn = document.getElementById(`disableBtn-${adopt}`);
+        displayBtn.classList.add('disable');
+    })
+    .catch(error => console.log(error))
+  
+    const countElement = document.getElementById('count');
+    const closeBtn = document.getElementById('closeBtn')
+
+    let num = 3;
+    let clockId = setInterval(() => {
+        if(num <= 1){
+            clearInterval(clockId);
+
+            //Automatically close the modal once the task is done
+            closeBtn.click();
+        }
+        countElement.innerHTML = num;
+        num--;
+    }, 1000)
+    document.getElementById('custom_modal_2').showModal();
+    // let count = document.getElementById('count_down').countDown();
+}
+
+
+
+// Display liked data by this function
 const displayLikedPet = (petImage) => {
     const petImageContainer = document.getElementById('image-container');
     
@@ -124,6 +161,9 @@ const loadPetAllData = () => {
 
 // By this function displaying the every single pets details
 const displayPetsData = pets => {
+    // spinner
+    document.getElementById('spiner').style.display = "none"
+    document.getElementById('image_card_container').style.display = "block";
     const imageContainer = document.getElementById('images-and-details');
     imageContainer.innerHTML = "";
 
@@ -164,24 +204,24 @@ const displayPetsData = pets => {
                 <h1 class="text-xl font-bold text-[#131313]">${singleImage.pet_name}</h1>
                 <div class="flex items-center -ml-3">
                     <img class="w-[40px] h-[40px]" src="./images/bread.png" />
-                    <p>Breed: ${singleImage.breed}</p>
+                    <p>Breed: ${singleImage.breed ? singleImage.breed : "Not available"}</p>
                 </div>
                 <div class="flex items-center -ml-3">
                     <img class="w-[40px] h-[40px]" src="./images/birth.png" />
-                    <p>Birth: ${singleImage.date_of_birth}</p>
+                    <p>Birth: ${singleImage.date_of_birth ? singleImage.date_of_birth : "Not Available"}</p>
                 </div>
                 <div class="flex items-center -ml-3">
                     <img class="w-[40px] h-[40px]" src="./images/gender.png" />
-                    <p>Gender: ${singleImage.gender}</p>
+                    <p>Gender: ${singleImage.gender ? singleImage.gender : "Not Available"}</p>
                 </div>
                 <div class="flex items-center -ml-3">
                     <img class="w-[40px] h-[40px]" src="./images/price.png" />
-                    <p>Price: ${singleImage.price}</p>
+                    <p>Price: ${singleImage.price == null ? "Not Available" : singleImage.price}</p>
                 </div>
                 <div class="card-actions border-t pt-5">
                    <div class="flex gap-2">
                          <button onclick="loadPetsImage(${singleImage.petId})" class="btn btn-outline px-2 py-0"><i class="px-2 text-xl fa-regular fa-thumbs-up"></i></button>
-                         <button class="btn btn-outline px-2 py-0 text-[#0E7A81]">Adopt</button>
+                         <button id="disableBtn-${singleImage.petId}" onclick="adoptThePet2(${singleImage.petId})" class="btn btn-outline px-2 py-0 text-[#0E7A81]">Adopt</button>
                          <button onclick="loadPetsDetails(${singleImage.petId})" class="btn btn-outline px-2 py-0 text-[#0E7A81]">Details</button>
                    </div>
                 </div>
