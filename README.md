@@ -18,3 +18,5 @@ ES6 Features used:
 3. Template Literals
 4. Promises
 5. Block-Scoped Functions:
+
+live Link: https://peddy-adoption-reja.netlify.app/
