@@ -1,15 +1,20 @@
-Project Name: Peddy-Adoption
+# Peddy-Adoption
 
-Short description of the project:
-This is an interactive website project called "Peddy-Adoption" where people can adopt adorable pets such as dogs, cats, rabbits, and more. Users will be able to choose pets by reviewing the available details on the website, helping them find the perfect pet to adopt.
+![Project Screenshot]([https://677c03012de37e47e62b4b50--rejaul-karim.netlify.app/assets/port1-k4fUNTwp.png](https://677c03012de37e47e62b4b50--rejaul-karim.netlify.app/assets/port3-BwfG6g-o.png)) <!-- Replace this link with the actual screenshot of your project -->
 
-5 key features of the project:
+## 🛠 Overview
+**This interactive website project is called "Peddy-Adoption" where people can adopt adorable pets such as dogs, cats, rabbits, and more. Users can choose pets by reviewing the available details on the website, helping them find the perfect pet to adopt.
 
-1. User-friendly interface
-2. Dynamic Content
-3. Animations and Transitions
-4. Interacive Elements
-5. Personalization
+## 🚀 Technologies Used
+- **Frontend**: React.js, Tailwind CSS, Daisy UI
+
+
+## 🌟 Features
+- User-friendly interface
+- Dynamic Content
+- Animations and Transitions
+- Interactive Elements
+- Personalization
 
 ES6 Features used:
 
@@ -19,4 +24,4 @@ ES6 Features used:
 4. Promises
 5. Block-Scoped Functions:
 
-live Link: https://peddy-adoption-reja.netlify.app/
+
