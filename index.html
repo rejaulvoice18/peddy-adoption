@@ -126,44 +126,39 @@
     </section>
 </footer>
 <!--Pets image details card endes from here -->
-    <!--Modal-->
+   <!-- Details Modal -->
     <!-- Open the modal using ID.showModal() method -->
-    <button class="btn hidden" onclick="custom_modal.showModal()">open modal</button>
-    <dialog id="custom_modal" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box">
-        <div id="modal-content">
+    <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
+    <dialog id="my_modal_2" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+           <div id="details-container"><!-- Pet Details here--></div>
+
+            <div class="modal-action">
+                <form method="dialog" class="inline-block w-full">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn w-full border border-teal-700">Close</button>
+                </form>
+            </div>
         </div>
-        <div class="modal-action">
-        <form method="dialog" class="flex items-center justify-center">
-            <!-- if there is a button in form, it will close the modal -->
-            <button class="btn bg-[#ccf6f9]">Cancel</button>
-        </form>
-        </div>
-    </div>
     </dialog>
 
-
-    <!--Second Modal-->
+    <!-- Adopt Modal -->
     <!-- Open the modal using ID.showModal() method -->
-    <button class="btn hidden" onclick="custom_modal_2.showModal()">open modal</button>
-    <dialog id="custom_modal_2" class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box">
-        <div id="count_down_container" class="flex flex-col space-y-3 items-center justify-center">
-            <img class="w-[60px] h-[60px]" src="https://img.icons8.com/?size=160&id=ww1tIlABtSe9&format=png" />
-            <h2 class="text-2xl font-bold">Congrates</h2>
-            <p>Adoption Process is Start For your Pet<p>
-            <h2 id="count" class="text-2xl font-bold"></h2>
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+    <dialog id="my_modal_1" class="modal">
+        <div class="modal-box">
+            <div id="adoptedCard" class="z-30 flex items-center justify-center flex-col bg-white px-2">
+                <i class="fa-regular fa-handshake text-4xl bg-gradient-to-r from-purple-500"></i>
+                <h2>Congratulations!</h2>
+                <p class="font-semibold my-3">Adoption will be done in</p>
+                <p id="countdown-container" class="text-5xl mb-4 font-bold">3</p>
+            </div>
+
         </div>
-        <div class="modal-action">
-        <form method="dialog">
-            <!-- if there is a button in form, it will close the modal -->
-            <button id="closeBtn" class="btn hidden">Close</button>
-        </form>
-        </div>
-    </div>
     </dialog>
+    
     <!-- JS Script -->
     <script src="./utility.js"></script>
-    <script src="js/functions.js"></script>
+    <script src="./functions.js"></script>
 </body>
 </html>
