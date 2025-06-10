@@ -1,137 +1,187 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Adoption</title>
-    <!--Fontawesome cdn link-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--Daisy UI-->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="./images/logo.webp" type="image/x-icon" />
+    <title>Peddy | Your Path to Adoption Starts Here</title>
+    <!-- Google Font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,
+    100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,
+    100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        .font-lato {
+            font-family: "Lato", sans-serif;
+        }
+    </style>
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/4.12.23/full.min.css"
+        integrity="sha512-X7IwWZuO7Ytab4NKsBU4iDFzULKVH7cPhVeqoSC94Fnbl/lO2GaS1KADVGRZIbbv/8GfUW793UDVTptmFoQoKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
- <header class="w-11/12 mx-auto">
-    <nav class="flex justify-between mt-14 items-center">
-        <div class="logo flex gap-3 items-center">
-            <img class="w-[25px] h-[25px]" src="./images/logo.webp" alt="">
-            <h3 class="text-3xl font-bold">Peddy</h3>
-        </div>
-        <div class="menu">
-            <ul class="flex">
-                <li><a href="">Home</a></li>
-                <li><a href="">Shop</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-        </div>
-        <div class="profile-icon">
-            <a href=""><i class="fa-regular fa-user p-3 border rounded-full"></i></a>
-        </div>
-    </nav>
-    <div class="mt-14">
-        <section class="banner-section text-center ">
-            <div class="w-2/3 mx-auto space-y-5">
-                <div class="flex justify-center gap-2 items-center">
-                    <h4 class="text-2xl">Bringing Families Together </h4> 
-                    <img class="w-[24px] h-[24px]" src="https://img.icons8.com/?size=96&id=DAcHRPKIfSSq&format=png" alt="">
-                </div>
-                <h1 class="text-7xl font-bold">Your Path to Adoption Starts Here</h1>
-                <p class="text-[16px]">Welcome to our pets adoption website, where you can find adorable dogs, cats, and rabbits waiting for a loving home. We provide detailed profiles for each pet, making it easier for you to choose the perfect companion. Whether you're looking for a playful pup, a curious kitten, or a cuddly rabbit, our platform offers a seamless and interactive adoption experience. Adopt a pet today and bring home a new friend!.</p>
-                <button class="btn bg-[#0E7A81] text-white">View More</button>
-            </div>
-            <div class="flex justify-center mt-12">
-                <img src="./images/pet.webp" alt="">
-            </div>
-        </section>
-        <!--Titel adopt your best friend-->
-        <section class="w-1/2 mx-auto text-center space-y-5">
-            <h2 class="text-[40px]">Adopt Your Best Friend</h2>
-            <p class="text-[16px]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
-        </section>
-    </div>
-    <nav id="menu-data" class="mt-8 py-3 flex gap-5 justify-between">
 
-    </nav>
- </header>
- <main class="w-11/12 mx-auto mt-8">
-    <!--Sort button-->
-    <section class="flex justify-between items-center my-3">
-        <h3 class="text-2xl">Best Deal For You</h3>
-        <button onclick="sortData()" class="btn bg-[#0E7A81] rounded-xl text-white">Sort by Price</button>
-    </section>
-    <!--Spiner start from here -->
-    <div id="spiner" class="w-11/12 max-auto">
-        <div class="min-h-56 min-w-80 flex justify-center items-center">
-            <span class="loading loading-bars loading-lg w-10 h-12"></span>
-        </div>
-    </div>
-    <!--Spiner end from here -->
-    <!--Pets image details card start from here -->
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-3">
-        <div id="image_card_container" class="col-span-3">
-            <div id="images-and-details" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-            </div>
-        </div>
-        <div id="right_side_bar" class="card card-compact ">
-            <div id="image-container" class="min-h-28 grid grid-cols-2 gap-5 p-3 border rounded-lg">
-                
-            </div>
-        </div>
-    </section>
-    
-    
-</main>
-<footer class="bg-black">
-    <section class="w-11/12 mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-10">
-            <div class="flex flex-col gap-4">
-                <div class="flex gap-2 items-center">
-                    <img class="w-[20px] h-[20px]" src="./images/logo.webp" alt="">
-                    <h2 class="text-xl font-bold text-white">Peddy</h2>
+<body class="text-[#131313] relative font-lato">
+    <!-- Navbar Section -->
+    <div class="max-w-[1280px] m-auto navbar bg-base-100 shadow-sm">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
                 </div>
-                <div>
-                    <p class="text-xs text-gray-300">Location: av. Washington 165, NY CA </p>
-                    <p class="text-xs text-gray-300">54003</p>
-                    <p class="text-xs text-gray-300">Phone: +31 85 964 47 25</p>
-                    <p class="text-xs text-gray-300">Email: info@yourdomain.com</p>
-                    <p class="text-xs text-gray-300">Openings hours: 9.00 AM - 5.00 PM</p>
-                </div>
-                <div >
-                    <ul class="flex gap-2" >
-                        <li class="w-[30px] h-[30px]"><a href=""><i class="fa-brands fa-facebook"></i></a></li>
-                        <li class="w-[30px] h-[30px]"><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
-                        <li class="w-[30px] h-[30px]"><a href=""><img src="https://img.icons8.com/?size=96&id=19318&format=png" alt=""></i></a></li>
-                        <li class="w-[30px] h-[30px]"><a href=""><img src="https://img.icons8.com/?size=96&id=32323&format=png" alt=""></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flex flex-col gap-3 items-start">
-                <h2 class="font-bold text-white">Useful Links</h2>
-                <ul>
-                    <li class="text-gray-300 text-xs"><a href="">Home</a></li>
-                    <li class="text-gray-300 text-xs"><a href="">About Us</a></li>
-                    <li class="text-gray-300 text-xs"><a href="">Animals</a></li>
-                    <li class="text-gray-300 text-xs"><a href="">Foundation</a></li>
-                    <li class="text-gray-300 text-xs"><a href="">Contact</a></li>
+                <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li><a href="/">Home</a></li>
+                    <li><a>Shop</a></li>
+                    <li><a>Contact</a></li>
                 </ul>
             </div>
-            <div class="flex flex-col gap-3 items-start">
-                <h2 class="font-bold text-white">Drop a Message</h2>
-                <input class="px-3 py-2 text-white bg-gray-500 rounded-lg" type="text" name="" id="" placeholder="Enter your email">
-                <button class="btn px-14 bg-[#0E7A81] text-white">Subscripte</button>
-            </div>
+            <a class="btn btn-ghost text-xl">
+                <img src="./images/logo.webp" alt="">
+                Peddy</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="/">Home</a></li>
+                <li><a>Shop</a></li>
+                <li><a>Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <a class="border py-2 px-3 rounded-full"><i class="fa-regular fa-user"></i></a>
+        </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="max-w-[1280px] m-auto pt-3">
+        <div class="space-y-5 flex flex-col items-center px-2">
+            <h4>Bringing Families Together <i class="fa-solid fa-heart text-red-600"></i></h4>
+            <h1 class="md:text-4xl font-bold md:w-2/4 text-center lg:text-6xl">Your Path to Adoption Starts Here</h1>
+            <p class="md:w-2/4 text-xs text-center">It is a long established fact that a reader will be distracted by
+                the readable
+                content of a page when looking at its layout. The point of using lorem ipsum is that it has a.
+            </p>
+            <a href="#adopt-container"><button class="bg-[#0E7A81] text-sm text-white py-2 px-3 rounded-md">View
+                    More</button></a>
+            <img class="w-3/4" src="./images/pet.webp" alt="">
         </div>
     </section>
-</footer>
-<!--Pets image details card endes from here -->
-   <!-- Details Modal -->
+
+    <!-- Main Section -->
+    <main class="max-w-[1280px] m-auto pt-8">
+        <div class="text-center items-center space-y-5 flex flex-col">
+            <h3 id="adopt-container" class="text-2xl lg:text-3xl font-bold">Adopt Your Best Friend</h3>
+            <p class="text-sm w-2/4">It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem is that it it has a.
+            </p>
+        </div>
+        <!-- Pet Category Btn-->
+        <div id="pet-categories" class="px-3 flex gap-5 my-6 justify-center lg:justify-between items-center">
+
+        </div>
+        <div class="flex items-center justify-between py-5 p-3">
+            <h3 class="font-bold text-lg">
+                Best Deal For you
+            </h3>
+            <button onclick="sort()" class="bg-[#0E7A81] btn text-white py-1.5 px-4 rounded-md">Sort by Price</button>
+        </div>
+
+        <!-- Cards and Images section here -->
+        <div class="my-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-3 gap-8">
+                <!-- Card Section -->
+                <div class="col-span-3">
+                    <!-- Spinner -->
+                    <div id="loader" class="hidden">
+                        <div class="relative flex justify-center items-center">
+                            <div
+                                class="absolute animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-teal-700">
+                            </div>
+                            <img src="./images/logo.webp" class="rounded-full">
+                        </div>
+                    </div>
+                    <!-- Cards -->
+                    <div id="all-pets" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Dynamic pet cards here..... -->
+
+                    </div>
+
+                </div>
+                <!-- Images section -->
+                <!-- h-fit er mane hochhe content er jetuku uchhota aache se oi uchhota porjontoi jaiga
+                  nibe beshi nibe nah -->
+                <div id="liked-pets" class="h-fit rounded-xl w-full border grid grid-cols-2 gap-2 p-2">
+                    <!-- dynamic pet images -->
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Starts from here -->
+    <footer class="bg-black">
+        <section class="w-11/12 mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-10">
+                <div class="flex flex-col gap-4">
+                    <div class="flex gap-2 items-center">
+                        <img class="w-[20px] h-[20px]" src="./images/logo.webp" alt="">
+                        <h2 class="text-xl font-bold text-white">Peddy</h2>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-300">Location: av. Washington 165, NY CA </p>
+                        <p class="text-xs text-gray-300">54003</p>
+                        <p class="text-xs text-gray-300">Phone: +31 85 964 47 25</p>
+                        <p class="text-xs text-gray-300">Email: info@yourdomain.com</p>
+                        <p class="text-xs text-gray-300">Openings hours: 9.00 AM - 5.00 PM</p>
+                    </div>
+                    <div>
+                        <ul class="flex gap-2">
+                            <li class="w-[30px] h-[30px]"><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                            <li class="w-[30px] h-[30px]"><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
+                            <li class="w-[30px] h-[30px]"><a href=""><img
+                                        src="https://img.icons8.com/?size=96&id=19318&format=png" alt=""></i></a></li>
+                            <li class="w-[30px] h-[30px]"><a href=""><img
+                                        src="https://img.icons8.com/?size=96&id=32323&format=png" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 items-start">
+                    <h2 class="font-bold text-white">Useful Links</h2>
+                    <ul>
+                        <li class="text-gray-300 text-xs"><a href="">Home</a></li>
+                        <li class="text-gray-300 text-xs"><a href="">About Us</a></li>
+                        <li class="text-gray-300 text-xs"><a href="">Animals</a></li>
+                        <li class="text-gray-300 text-xs"><a href="">Foundation</a></li>
+                        <li class="text-gray-300 text-xs"><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col gap-3 items-start">
+                    <h2 class="font-bold text-white">Drop a Message</h2>
+                    <input class="px-3 py-2 text-white bg-gray-500 rounded-lg" type="text" name="" id=""
+                        placeholder="Enter your email">
+                    <button class="btn px-14 bg-[#0E7A81] text-white">Subscripte</button>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!--Pets image details card endes from here -->
+    <!-- Details Modal -->
     <!-- Open the modal using ID.showModal() method -->
-    <button class="btn" onclick="my_modal_2.showModal()">open modal</button>
+    <!-- <button class="btn" onclick="my_modal_2.showModal()">open modal</button> -->
     <dialog id="my_modal_2" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
-           <div id="details-container"><!-- Pet Details here--></div>
+            <div id="details-container"><!-- Pet Details here--></div>
 
             <div class="modal-action">
                 <form method="dialog" class="inline-block w-full">
@@ -156,9 +206,10 @@
 
         </div>
     </dialog>
-    
+
     <!-- JS Script -->
     <script src="./utility.js"></script>
     <script src="./functions.js"></script>
 </body>
+
 </html>
